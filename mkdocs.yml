@@ -1,0 +1,196 @@
+# Project information
+site_name: Course Notes
+docs_dir: docs  # Where to find the English markdown files
+site_dir: site  # Where to put the English HTML files
+site_author: 'Melih Divan'
+site_url: 'https://melihdvn.github.io/dr101-course-notes/'
+
+site_description_en: >-
+    Course Notes
+
+site_description_tr: >-
+    Ders Notları
+
+# Repository
+repo_name: 'GitHub'
+repo_url: 'https://github.com/Melihdvn/dr101-course-notes'
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2019 - 2022 Melih Divan
+        
+# Configuration
+theme:
+  name: material
+  custom_dir: docs/overrides/
+  #name: null
+  #custom_dir: !ENV [THEME_DIR, "material"]
+  
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+  
+  # Static files
+  static_templates:
+    - 404.html
+    
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - toc.integrate
+    
+  palette:
+    - scheme: default
+      primary: light blue
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - scheme: slate
+      primary: orange
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: images/favicon.png
+  icon:
+    logo: logo
+    
+# Customization
+extra:
+  analytics:
+    provider: google
+    property: !ENV j6eHa6NEQ_awNXJD9SxtWw
+    feedback:
+      title: Was this page nice?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was nice
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback!
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    cookies:
+      analytics: Google Analytics
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/melihdvn
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/melih.divan/
+            
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - codehilite:
+      guess_lang: true
+
+plugins:
+  - mkdocs-video #https://pypi.org/project/mkdocs-video/
+  - search
+  - i18n:
+      default_language: !ENV [DEFAULT_LANGUAGE, "en"]
+      default_language_only: !ENV [DEFAULT_LANGUAGE_ONLY, false]
+      languages:
+        default:
+          name: English
+          build: true
+        en:
+          name: English
+          build: true
+          site_name: "Driving101 (en)"
+        tr:
+          name: Türkçe
+          build: true
+          site_name: "Driving101 (tr)"
+      nav_translations:
+        tr:
+          Home: 'Ana Sayfa'
+          Syllabus: 'Ders İzlencesi'
+          Course Modules: 'Ders Modülleri'
+          Week-1 (Understanding traffic signs): 'Hafta-1 (Understanding traffic signs)'
+          Week-2 (General traffic rules): 'Hafta-2 (General traffic rules)'
+          License: 'Lisans'
+          Resume: 'Özgeçmiş'
+          Changelog: 'Geçmiş'
+  - git-revision-date-localized
+  - minify:
+      minify_html: false
+
+extra_javascript:
+  - javascript/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  
+# Page tree
+nav:
+  - Home: index.md
+  - Course Modules:
+    - Week-1 (Understanding traffic signs): week-1/week-1.md
+    - Week-2 (Getting prepared): week-2/week-2.md
+  - License: license.md
